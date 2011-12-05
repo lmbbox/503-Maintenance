@@ -1,0 +1,11 @@
+
+# 503 Maintenance .htaccess
+
+ErrorDocument 503 /503.php
+RewriteEngine On
+
+# Set your excluded IPs
+RewriteCond %{REMOTE_ADDR} !^111\.111\.111\.111$
+
+RewriteCond %{REQUEST_URI} !/503.(php|png)$
+RewriteRule .* - [R=503,L]
